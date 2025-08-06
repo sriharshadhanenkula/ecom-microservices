@@ -1,16 +1,23 @@
 spring:
   application:
     name: user-service
-  datasource:
-    url: jdbc:postgresql://localhost:5432/userdb
-    username: sriharsha
-    password: sriharsha
-  jpa:
-    database: POSTGRESQL
-    show-sql: true
-    hibernate:
-      ddl-auto: update
-    database-platform: org.hibernate.dialect.PostgreSQLDialect
+  data:
+    mongodb:
+#      uri: mongodb+srv://sriharsha:sriharsha@user-data.hu3yv9q.mongodb.net/?retryWrites=true&w=majority&appName=user-data
+      uri: mongodb://localhost:27017/ecom_user
+      database: ecom_user
+
+
+#  datasource:
+#    url: jdbc:postgresql://localhost:5432/userdb
+#    username: sriharsha
+#    password: sriharsha
+#  jpa:
+#    database: POSTGRESQL
+#    show-sql: true
+#    hibernate:
+#      ddl-auto: update
+#    database-platform: org.hibernate.dialect.PostgreSQLDialect
 
 #  h2:
 #    console:
