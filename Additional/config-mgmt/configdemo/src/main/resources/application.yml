@@ -1,14 +1,18 @@
 spring:
   application:
-    name: config-demo
-  profiles:
-    active: prod
+    name: configdemo
+  config:
+    import: optional:configserver:http://localhost:8888
 
+  profiles:
+    active: dev
 
 build:
   id: ${ID}
   version: ${VERSION}}
   name: ${NAME}
+
+
 
 
   #BUILD_ID=4444;BUILD_NAME=NAME_TEST;BUILD_VERSION=1.0.0
