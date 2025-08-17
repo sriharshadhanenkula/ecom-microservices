@@ -17,6 +17,19 @@ management:
       exposure:
         include: "*"
 
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
+    register-with-eureka: true
+    fetch-registry: true
+
+
+server:
+  port: 8082
+
+
 #  datasource:
 #    url: jdbc:postgresql://localhost:5432/userdb
 #    username: sriharsha
@@ -38,7 +51,6 @@ management:
 #    hibernate:
 #      ddl-auto: create
 
-server:
-  port: 8082
+
 
 
