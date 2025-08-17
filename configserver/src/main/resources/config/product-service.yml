@@ -11,6 +11,18 @@ spring:
       ddl-auto: update
     database-platform: org.hibernate.dialect.PostgreSQLDialect
 
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: guest
+    password: guest
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+
 #  h2:
 #    console:
 #      enabled: true
@@ -23,6 +35,4 @@ spring:
 
 server:
   port: 8081
-
-
 
