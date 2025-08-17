@@ -1,0 +1,28 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/product
+    #    url: jdbc:postgresql://ep-misty-flower-aeh0luis-pooler.c-2.us-east-2.aws.neon.tech/product?sslmode=require&channel_binding=require'
+    username: ${DB_USER}
+    password: ${DB_PASSWORD}
+  jpa:
+    database: POSTGRESQL
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+
+#  h2:
+#    console:
+#      enabled: true
+#  datasource:
+#    url: jdbc:h2:mem:test
+#  jpa:
+#    show-sql: true
+#    hibernate:
+#      ddl-auto: create
+
+server:
+  port: 8081
+
+
+
