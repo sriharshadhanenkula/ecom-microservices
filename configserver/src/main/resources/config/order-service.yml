@@ -29,6 +29,16 @@ eureka:
     register-with-eureka: true
     fetch-registry: true
 
+logging:
+  file:
+    name: logs/${spring.application.name}.log
+  logback:
+    rollingpolicy:
+      max-file-size: 5MB
+      max-history: 7
+
+server:
+  port: 8083
 
 #  h2:
 #    console:
@@ -41,5 +51,4 @@ eureka:
 #      ddl-auto: create
 
 
-server:
-  port: 8083
+
