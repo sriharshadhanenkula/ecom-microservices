@@ -12,15 +12,21 @@ public class GatewayConfig {
     public RouteLocator customRouteLocator(RouteLocatorBuilder builder){
         return builder.routes()
                 .route("product-service", r-> r
-                        .path("/api/products/**")
+                        .path("/products/**")
+                        .filters(f -> f.rewritePath("/products(?<segment>/?.*)",
+                                "/api/products${segment}") )
                         .uri("http://localhost:8081"))
 
                 .route("user-service", r-> r
-                        .path("/api/users/**")
+                        .path("/users/**")
+                        .filters(f -> f.rewritePath("/users(?<segment>/?.*)",
+                                "/api/users${segment}") )
                         .uri("http://localhost:8082"))
 
                 .route("order-service", r-> r
-                        .path("/api/orders/**","/api/cart/**")
+                        .path("/orders/**","/cart/**")
+                        .filters(f -> f.rewritePath("/(?<segment>/?.*)",
+                                "/api/${segment}") )
                         .uri("http://localhost:8083"))
 
                 .route("eureka-server", r-> r
