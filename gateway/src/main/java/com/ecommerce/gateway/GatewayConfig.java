@@ -5,28 +5,28 @@ import org.springframework.cloud.gateway.route.builder.RouteLocatorBuilder;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
-//@Configuration
+@Configuration
 public class GatewayConfig {
 
-    //@Bean
+    @Bean
     public RouteLocator customRouteLocator(RouteLocatorBuilder builder){
         return builder.routes()
                 .route("product-service", r-> r
-                        .path("/products/**")
-                        .filters(f -> f.rewritePath("/products(?<segment>/?.*)",
-                                "/api/products${segment}") )
+                        .path("/api/products/**")
+//                        .filters(f -> f.rewritePath("/products(?<segment>/?.*)",
+//                                "/api/products${segment}") )
                         .uri("http://localhost:8081"))
 
                 .route("user-service", r-> r
-                        .path("/users/**")
-                        .filters(f -> f.rewritePath("/users(?<segment>/?.*)",
-                                "/api/users${segment}") )
+                        .path("/api/users/**")
+//                        .filters(f -> f.rewritePath("/users(?<segment>/?.*)",
+//                                "/api/users${segment}") )
                         .uri("http://localhost:8082"))
 
                 .route("order-service", r-> r
-                        .path("/orders/**","/cart/**")
-                        .filters(f -> f.rewritePath("/(?<segment>/?.*)",
-                                "/api/${segment}") )
+                        .path("/api/orders/**","/api/cart/**")
+//                        .filters(f -> f.rewritePath("/(?<segment>/?.*)",
+//                                "/api/${segment}") )
                         .uri("http://localhost:8083"))
 
                 .route("eureka-server", r-> r
