@@ -47,6 +47,15 @@ logging:
       max-file-size: 5MB
       max-history: 7
 
+rabbitmq:
+  exchange:
+    name: order.exchange
+  queue:
+    name: order.queue
+  routing:
+    key: order.tracking
+
+
 #circuit breaker
 resilience4j:
   circuitbreaker:
